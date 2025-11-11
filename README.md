@@ -3,6 +3,10 @@
 GenTest is a simple Windows-only console GUI for generating and validating problem tests.  
 It allows you to generate inputs and outputs, validate them, and easily edit generator, solver, and validator files.
 
+___
+
+
+
 ## Download
 
 **Make sure you have `g++` installed (part of MinGW or similar) and added to your PATH.**
@@ -21,11 +25,19 @@ It allows you to generate inputs and outputs, validate them, and easily edit gen
 
 2. After that, the main menu will appear, and magic begins.
 
+
+
+---
+
+
+
 ## Usage
 
 **Note:** Before generating any test cases, make sure to modify the generator, validator, and solver according to the problem. Also, there are some helper functions declared in `./GenTest/config/lib.h`, such as random, file management, and utilities.
 
 By the way, the default generator, validator, and solver are for the problem A TIMES B.
+
+
 
 #### GUI App
 
@@ -90,6 +102,22 @@ main.exe --code "PROBLEMCODE" --ntest 100 -input -output --validate both --syste
 ```
 
 - If you use the GUI App, it will generate it for you.
+
+
+
+---
+
+
+
+##### About solver file
+
+- The `solver.cpp` file is the main correct solution that will be used to generate test. The input and output are from stdin and stdout, respectively.
+
+
+
+---
+
+
 
 ## Credits
 
