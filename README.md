@@ -1,13 +1,13 @@
-# GenTest
+# GenTest v1.0.0
 
 GenTest is a simple Windows-only console GUI for generating and validating problem tests.  
-It allows you to generate inputs and outputs, validate them, and edit generator/solver/validator files easily.
+It allows you to generate inputs and outputs, validate them, and easily edit generator, solver, and validator files.
 
 ## Download
 
 **Make sure you have `g++` installed (part of MinGW or similar) and added to your PATH.**
 
-1. Download the zip file from GitHub, extract it then run `GenTest.exe`.
+1. Download the zip file from GitHub, extract it, and then run `GenTest.exe`.
    
    If there is no `GenTest.exe`, compile `GenTest.cpp` and run:
    
@@ -19,27 +19,29 @@ It allows you to generate inputs and outputs, validate them, and edit generator/
    GenTest.exe
    ```
 
-2. After that, the main menu will appear, and magic starts.
+2. After that, the main menu will appear, and magic begins.
 
 ## Usage
 
-**Note:** Before generating any test cases, make sure to modify the generator, validator and solver based on the problem. Also, there are some helpers function declared in `./GenTest/config/lib.h` such as random, file management, utilities.
+**Note:** Before generating any test cases, make sure to modify the generator, validator, and solver according to the problem. Also, there are some helper functions declared in `./GenTest/config/lib.h`, such as random, file management, and utilities.
+
+By the way, the default generator, validator, and solver are for the problem A TIMES B.
 
 #### GUI App
 
-1. Click on `GenTest.exe`, you will see a console which has a few options.
+1. Click on `GenTest.exe`; you will see a console with a few options.
    
    - Create new problem
      
      - This is where a new problem (test cases) will be generated.
      
-     - You will be asked about problem name/code (such as MINQUERY, GCDMAX,...), the number of test cases (i.e. 100, 50, 20,...), if inputs and outputs are generated, add test (input/output) validator.
+     - You will be asked for the problem name/code (such as MINQUERY, GCDMAX, etc.), the number of test cases (e.g., 100, 50, 20), whether to generate inputs and outputs, and whether to add a test (input/output) validator.
      
      - Then, the app will generate a command line to generate test cases, and you can generate the tests right away!
    
    - Settings
      
-     - You can change things like input file extension. output file extension, type of system (could be default, hackerrank, or themis),...
+     - You can change settings such as the input file extension, output file extension, and system type (default, hackerrank, or themis).
    
    - Credits
    
@@ -47,15 +49,13 @@ It allows you to generate inputs and outputs, validate them, and edit generator/
 
 **Notes:**
 
-- Type `<exit>` when promted to automatically exit the program.
+- Type `<exit>` when prompted to automatically exit the program.
 
 #### Command line
 
-1. Go to folder `./GenTest/` and compile `main.cpp` into `main.exe`, version `-std=c++14`.
+1. Go to the folder `./GenTest/` and compile `main.cpp` into `main.exe` using the `-std=c++14` flag.
 
-2. Run on console: `main.exe` to generate a new program, here are the flags:
-   
-   - `--code <name>`/`-c`: the name/code of the problem.
+2. Run `main.exe` in the console to generate a new program. Here are the available flags:`--code <name>`/`-c`: the name/code of the problem.
    
    - `--ntest <#>`/`-t`: the number of test cases.
    
