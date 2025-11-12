@@ -1,4 +1,4 @@
-# GenTest v1.0.0
+# GenTest
 
 GenTest is a simple Windows-only console GUI for generating and validating problem tests.  
 It allows you to generate inputs and outputs, validate them, and easily edit generator, solver, and validator files.
@@ -90,6 +90,12 @@ main.exe --code "PROBLEMCODE" --ntest 100 -input -output --validate both --syste
 ```
 
 - If you use the GUI App, it will generate it for you.
+  
+  
+
+##### About generated test cases
+
+- The test cases will be generated in `./GenTest/Tests`. From here, you can compress it to zip and then upload to your server, or do anything you want.
 
 ##### About solver file
 
@@ -101,6 +107,6 @@ Made by Hung (hungg261).
 
 Inspired by "testlib.h".
 
-Note: I will update and maintain it frequently (hopefully).
+Note: I will update and maintain it frequently (hopefully). Rawhhhhh
 
 HCMC, Vietnam, 2025.
