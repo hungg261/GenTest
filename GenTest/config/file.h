@@ -4,7 +4,7 @@
  * Created (dd-mm-yyyy): 01-11-2025
  * Description:
  *      Template for random generation.
- * Version: > C++14, Windows
+ * Version: >= C++14, Windows
  ******************************************************************************/
 #ifndef FILE_H
 #define FILE_H
@@ -80,6 +80,17 @@ bool deleteFile(string filepath){
     }
 
     return true;
+}
+
+
+void highlightFileInExplorer(const string &path) {
+    string cmd = "explorer /select,\"" + path + "\"";
+    system(cmd.c_str());
+}
+
+void openFolderInExplorer(const string& path){
+    string cmd = "explorer \"" + path + "\"";
+    system(cmd.c_str());
 }
 
 }

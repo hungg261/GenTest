@@ -1,3 +1,10 @@
+/******************************************************************************
+ * Project: Utilities Template
+ * Author:
+ * Created (dd-mm-yyyy):
+ * Description: none
+ * Version: >= C++14, Windows
+ ******************************************************************************/
 #ifndef UTILITIES_H
 #define UTILITIES_H
 

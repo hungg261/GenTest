@@ -4,7 +4,7 @@
  * Created (dd-mm-yyyy): 01-11-2025
  * Description:
  *      Template for random generation.
- * Version: > C++14
+ * Version: >= C++14, Windows
  ******************************************************************************/
 #ifndef RANDOM_H
 #define RANDOM_H

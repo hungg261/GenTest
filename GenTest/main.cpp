@@ -7,6 +7,11 @@ using namespace File;
 #define int long long
 
 struct Config{
+    string APP_NAME = "GenTest";
+    string APP_VERSION = "1.1.0";
+
+    ////////////////////////////////////
+
     int NTEST = 50;
     string CODE = "TEST";
     string INP_DIR = "Tests/" + CODE + "/input", OUT_DIR = "Tests/" + CODE + "/output";
@@ -112,16 +117,24 @@ Config parseArgs(int32_t argc, char* argv[]){
     for (int i = 1; i < argc; ++i){
         string arg = argv[i];
 
-        if((arg == "--code" || arg == "-c") && i + 1 < argc){
+        if(arg == "--version" || arg == "-v"){
+            cout << cfg.APP_NAME << " " << cfg.APP_VERSION << "\n\n";
+            cout << "* Name: " << cfg.APP_NAME << "\n";
+            cout << "* Version: " << cfg.APP_VERSION << "\n";
+            system("pause");
+
+            exit(0);
+        }
+        else if((arg == "--code" || arg == "-c") && i + 1 < argc){
             cfg.CODE = argv[++i];
         }
         else if((arg == "--ntest" || arg == "-t") && i + 1 < argc){
             cfg.NTEST = stoi(argv[++i]);
         }
-        else if(arg == "-input" || arg == "-inp"){
+        else if(arg == "--input" || arg == "-inp"){
             cfg.IS_INPUT = true;
         }
-        else if(arg == "-output" || arg == "-out"){
+        else if(arg == "--output" || arg == "-out"){
             cfg.IS_OUTPUT = true;
         }
         else if((arg == "--validate" || arg == "-v") && i + 1 < argc){
@@ -140,13 +153,13 @@ Config parseArgs(int32_t argc, char* argv[]){
                 exit(1);
             }
         }
-        else if(arg == "--inpext" && i + 1 < argc){
+        else if((arg == "--inpext" || arg == "-ie") && i + 1 < argc){
             cfg.INP_EXT = argv[++i];
         }
-        else if(arg == "--outext" && i + 1 < argc){
+        else if((arg == "--outext" || arg == "-oe") && i + 1 < argc){
             cfg.OUT_EXT = argv[++i];
         }
-        else if((arg == "--system" || arg == "--type") && i + 1 < argc){
+        else if((arg == "--system" || arg == "--type" || arg == "-s") && i + 1 < argc){
             string val = argv[++i];
             if(val == "default" || val == "themis" || val == "hackerrank"){
                 cfg.SYSTEM = val;
@@ -155,7 +168,7 @@ Config parseArgs(int32_t argc, char* argv[]){
                 exit(1);
             }
         }
-        else if(arg == "--version" && i + 1 < argc) {
+        else if((arg == "--cppversion" || arg == "-cv") && i + 1 < argc) {
             string ver = argv[++i];
             static const vector<string> allowed = {"c++98", "c++03", "c++11", "c++14", "c++17"};
             if(find(allowed.begin(), allowed.end(), ver) != allowed.end()) {
@@ -222,15 +235,16 @@ signed main(int32_t argc, char* argv[]){
     Info::config = parseArgs(argc, argv);
     Info::config.update();
 
-    if(!createFolder("./Tests/" + Info::config.CODE)){
+    string PATH = "Tests\\" + Info::config.CODE;
+    if(!createFolder(PATH)){
         cout << "Problem already exists. Overwrite? (Y/N): ";
 
         char token; cin >> token;
         token = tolower(token);
 
         if(token == 'y'){
-            deleteFolder("./Tests/" + Info::config.CODE, true);
-            createFolder("./Tests/" + Info::config.CODE, true);
+            deleteFolder(PATH, true);
+            createFolder(PATH, true);
         }
         else{
             return 0;
@@ -269,7 +283,10 @@ signed main(int32_t argc, char* argv[]){
     Info::stop_time = chrono::high_resolution_clock::now();
     Info::updateTime();
 
-    cout << "\n================== PROGRAM STOPPED ==================\n";
+    cerr << "path: " << PATH << '\n';
+    openFolderInExplorer(PATH);
+
+    cout << "\n================== PROGRAM FINISHED ==================\n";
 
     cout << "\nInformation:\n";
     cout << "(*) Problem code: " << Info::config.CODE << "\n";

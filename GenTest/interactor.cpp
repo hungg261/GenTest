@@ -88,6 +88,10 @@ void showCredits() {
     system("pause");
 }
 
+void showInfo() {
+    system("main.exe --version");
+}
+
 void settingsMenu(GenTestConfig &cfg) {
     while (true) {
         cout << "\n================ Settings =================\n";
@@ -139,8 +143,8 @@ void newProblemMenu(const GenTestConfig &cfg) {
     string cmd = "main.exe";
     cmd += string(" --code \"") + code + "\"";
     cmd += " --ntest " + to_string(ntest);
-    if (generateInput) cmd += " -input";
-    if (generateOutput) cmd += " -output";
+    if (generateInput) cmd += " --input";
+    if (generateOutput) cmd += " --output";
 
     if (validateInput && !validateOutput) cmd += " --validate input";
     else if (!validateInput && validateOutput) cmd += " --validate output";
@@ -172,6 +176,7 @@ int main() {
         cout << "[1] New problem\n";
         cout << "[2] Settings\n";
         cout << "[3] Credits\n";
+        cout << "[4] Info\n";
         cout << "[0] Exit\n";
 
         string choice = Utilities::promptInput("-> ");
@@ -180,6 +185,7 @@ int main() {
         else if (choice == "1") newProblemMenu(cfg);
         else if (choice == "2") settingsMenu(cfg);
         else if (choice == "3") showCredits();
+        else if (choice == "4") showInfo();
         else cout << "[!] Invalid option.\n";
     }
 
