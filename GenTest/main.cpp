@@ -137,7 +137,7 @@ Config parseArgs(int32_t argc, char* argv[]){
         else if(arg == "--output" || arg == "-out"){
             cfg.IS_OUTPUT = true;
         }
-        else if((arg == "--validate" || arg == "-v") && i + 1 < argc){
+        else if((arg == "--validate" || arg == "-vl") && i + 1 < argc){
             string val = argv[++i];
             if(val == "input" || val == "inp"){
                 cfg.VALIDATE_INPUT = true;
@@ -283,7 +283,6 @@ signed main(int32_t argc, char* argv[]){
     Info::stop_time = chrono::high_resolution_clock::now();
     Info::updateTime();
 
-    cerr << "path: " << PATH << '\n';
     openFolderInExplorer(PATH);
 
     cout << "\n================== PROGRAM FINISHED ==================\n";
