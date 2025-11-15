@@ -1,4 +1,4 @@
-# GenTest
+# GenTest v1.1.0
 
 GenTest is a simple **Windows-only** console GUI for generating and validating problem tests.  
 It allows you to generate inputs and outputs, validate them, and easily edit generator, solver, and validator files.
