@@ -92,7 +92,7 @@ By the way, the default (example) generator, validator, and solver are for the p
 For example, this is an example of generated command:
 
 ```batch
-main.exe --code "PROBLEMCODE" --ntest 100 -input -output --validate both --system themis
+main.exe --code "PROBLEMCODE" --ntest 100 --input --output --validate both --system themis
 ```
 
 - If you use the GUI App, it will generate it for you.
